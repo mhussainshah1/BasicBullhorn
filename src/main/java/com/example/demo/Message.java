@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.lang.NonNull;
 
@@ -34,6 +35,7 @@ public class Message {
     @Size(min = 10)
     private String content;
 
+    @Autowired
     @NonNull
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     LocalDate postedDate;
@@ -47,6 +49,7 @@ public class Message {
     private String picturePath;
 
     public Message() {
+        postedDate = LocalDate.now();
     }
 
     public Message(@Size(min = 4) String title,

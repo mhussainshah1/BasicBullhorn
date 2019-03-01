@@ -13,7 +13,9 @@
 picturePath
 -->
 <div align="center" class="container">
-    <h2>Enter Message</h2>
+    <div class="jumbotron lead">
+        <h2 align="center">Enter Message</h2>
+    </div>
     <form action="#" enctype="multipart/form-data" method="POST" th:action="@{/process}" th:object="${message}">
         <input th:field="*{id}" type="hidden"/>
 
@@ -30,8 +32,9 @@ picturePath
             </tr>
             <tr>
                 <td>Posted Date:</td>
-                <td><input th:field="*{postedDate}" type="date"/> <!--name="postedDate"--></td>
-                <td><span th:errors="*{postedDate}" th:if="${#fields.hasErrors('postedDate')}"></span></td>
+                <td th:text="${message.postedDate}"></td>
+                <!--<td> <input th:field="*{postedDate}" type="date"/> &lt;!&ndash;name="postedDate"&ndash;&gt;</td>-->
+                <!--<td><span th:errors="*{postedDate}" th:if="${#fields.hasErrors('postedDate')}"></span></td>-->
             </tr>
             <tr>
                 <td>Posted By:</td>
