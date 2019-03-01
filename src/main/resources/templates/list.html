@@ -30,7 +30,11 @@
             <!--<td th:text = "${#temporals.format(message.dueDate, 'yyyy-MM-dd')}"></td>-->
             <td th:text="${message.postedDate}"></td>
             <td th:text="${message.postedBy}"></td>
-            <td><img th:src="${message.picturePath}" alt="Picture"></td>
+            <td>
+                <div th:if="${message.picturePath} != null">
+                    <img th:src="${message.picturePath}" alt="Picture">
+                </div>
+            </td>
             <td>
                 <a th:href="@{/update/{id}(id=${message.id})}">Update</a>-<!-- Update -->
                 <a th:href="@{/detail/{id}(id=${message.id})}">Details</a>-<!-- Read -->
