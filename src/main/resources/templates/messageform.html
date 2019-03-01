@@ -43,12 +43,11 @@ picturePath
             </tr>
             <tr>
                 <td>Picture:</td>
-                <td><input name="file" type="file"/>
-                    <!-- <select th:field="*{picturePath}">
-                         <option th:value="@{/img/high-priority.jpg}" th:text="High"></option>
-                         <option th:value="@{/img/medium-priority.jpg}" th:text="Medium"></option>
-                         <option th:value="@{/img/low-priority.jpg}" th:text="Low"></option>
-                     </select>-->
+                <td><input name="file" type="file"/></td>
+                <td>
+                    <div th:if="${message.picturePath} != null">
+                        <img class ="profile-picture" th:src="${message.picturePath}" th:alt = "Picture"><!-- th:text="${message.picturePath}" -->
+                    </div>
                 </td>
                 <td><span th:errors="*{picturePath}" th:if="${#fields.hasErrors('picturePath')}"></span></td>
             </tr>
