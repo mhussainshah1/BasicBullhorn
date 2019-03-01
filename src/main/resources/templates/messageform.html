@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <div th:replace ="base::header"></div>
+    <title>Message Form</title>
+
+</head>
+
+<body>
+<div th:replace="base::navlinks"></div>
+<br/>
+<!--
+picturePath
+-->
+<div class="container" align="center">
+    <h1>Enter Message</h1>
+    <form action="#" method="post" th:action="@{/process}" th:object="${message}">
+        <input th:field="*{id}" type="hidden"/>
+
+        <table>
+            <tr>
+                <td>Title:</td>
+                <td> <input th:field="*{title}" type="text"/></td>
+                <td><span th:errors="*{title}" th:if="${#fields.hasErrors('title')}"></span></td>
+            </tr>
+            <tr>
+                <td>Content:</td>
+                <td><textarea rows="3" th:field="*{content}"/></td>
+                <td> <span th:errors="*{content}" th:if="${#fields.hasErrors('content')}"></span></td>
+            </tr>
+            <tr>
+                <td>Posted Date:</td>
+                <td> <input th:field="*{postedDate}" type = "date" /> <!--name="postedDate"--></td>
+                <td> <span th:errors="*{postedDate}" th:if="${#fields.hasErrors('postedDate')}"></span></td>
+            </tr>
+            <tr>
+                <td>Posted By:</td>
+                <td> <input th:field="*{postedBy}" type="text"/></td>
+                <td><span th:errors="*{postedBy}" th:if="${#fields.hasErrors('postedBy')}"></span></td>
+            </tr>
+            <tr>
+                <td>Picture:</td>
+                <td>
+                    <select th:field="*{picturePath}">
+                        <option th:value="@{/img/high-priority.jpg}" th:text="High"></option>
+                        <option th:value="@{/img/medium-priority.jpg}" th:text="Medium"></option>
+                        <option th:value="@{/img/low-priority.jpg}" th:text="Low"></option>
+                    </select>
+                </td>
+                <td> <span th:errors="*{picturePath}" th:if="${#fields.hasErrors('picturePath')}"></span></td>
+            </tr>
+        </table>
+        <input type="submit" value="Submit"/>
+    </form>
+</div>
+<br/>
+<div th:replace ="base::footer"></div>
+</body>
+</html>
