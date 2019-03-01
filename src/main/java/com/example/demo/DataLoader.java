@@ -25,14 +25,14 @@ public class DataLoader implements CommandLineRunner {
                 "I am still looking for someone to come in my life",
                 LocalDate.of(2019, 02, 14),
                 "Victor",
-                "/img/completed.png");
+                "/img/victor.png");
         repository.save(message);
 
         message = new Message("Mother's Day",
                 "Happy mother day to the most loving mom in the world",
                 LocalDate.of(2019, 05, 15),
                 "Melisa",
-                "/img/completed.png");
+                "/img/notcompleted.png");
         repository.save(message);
     }
 }
