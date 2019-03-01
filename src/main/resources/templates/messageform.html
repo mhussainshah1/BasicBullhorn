@@ -16,7 +16,7 @@ picturePath
     <div class="jumbotron lead">
         <h2 align="center">Enter Message</h2>
     </div>
-    <form action="#" enctype="multipart/form-data" method="POST" th:action="@{/process}" th:object="${message}">
+    <form enctype="multipart/form-data" method="POST" th:action="@{/process}" th:object="${message}">
         <input th:field="*{id}" type="hidden"/>
 
         <table class="table" style="width:100%">
@@ -49,7 +49,7 @@ picturePath
                         <img class ="profile-picture" th:src="${message.picturePath}" th:alt = "Picture"><!-- th:text="${message.picturePath}" -->
                     </div>
                 </td>
-                <td><span th:errors="*{picturePath}" th:if="${#fields.hasErrors('picturePath')}"></span></td>
+                <td></td> <!-- <span th:errors="*{picturePath}" th:if="${#fields.hasErrors('picturePath')}"></span>-->
             </tr>
         </table>
         <input type="submit" value="Submit"/>
