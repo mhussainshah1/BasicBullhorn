@@ -84,4 +84,9 @@ public class HomeController {
         messageRepository.deleteById(id);
         return "redirect:/";
     }
+
+    @RequestMapping("/about")
+    public String getAbout() {
+        return "about";
+    }
 }
