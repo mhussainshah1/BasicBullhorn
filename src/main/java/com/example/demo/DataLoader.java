@@ -18,21 +18,21 @@ public class DataLoader implements CommandLineRunner {
                 "Dave wants to give holiday because we did good in class",
                 LocalDate.now(),
                 "Muhammad",
-                "/img/completed.png");
+                "https://res.cloudinary.com/mhussainshah1/image/upload/v1550870732/blog/shah.jpg");
         repository.save(message);
 
         message = new Message("Valentines Day",
                 "I am still looking for someone to come in my life",
                 LocalDate.of(2019, 02, 14),
                 "Victor",
-                "/img/victor.png");
+                "https://res.cloudinary.com/mhussainshah1/image/upload/v1551473204/victor.png");
         repository.save(message);
 
         message = new Message("Mother's Day",
                 "Happy mother day to the most loving mom in the world",
                 LocalDate.of(2019, 05, 15),
                 "Melisa",
-                "/img/notcompleted.png");
+                "https://res.cloudinary.com/mhussainshah1/image/upload/v1551473204/notcompleted.png");
         repository.save(message);
     }
 }

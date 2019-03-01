@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="www.thymeleaf.org">
 <head>
     <div th:replace="base::header"></div>
-    <title>html5-with-fragments</title>
+    <title>About Us</title>
 
 </head>
 
@@ -10,9 +10,7 @@
 <div th:replace="base::nav"></div>
 <div class="container">
     <div class="jumbotron lead" id="blog">
-        <h1 align="center">About Us </h1>
-        <br>
-        <br>
+        <h2 align="center">About Us </h2>
         <p>I can help you to write your first Java class to developing a complete website. I will provide guide which
             contains lessons that will give you a jump start on your career. Detailed instructions enable you to
             successfully complete the many problems. You'll get immediate feedback as you check them against supplied
@@ -23,12 +21,14 @@
             connect to other databases such as PostgreSQL and Oracle. </p>
 
         <p>And you’ll learn best practices from the experience.</p>
-
+    </div>
+    <div class="row">
         <div class="col-sm-6">
             <img alt="Muhammad Shah" class="profile-picture"
                  src="https://res.cloudinary.com/mhussainshah1/image/upload/v1550870732/blog/shah.jpg"
                  title="Muhammad Shah">
-            <br>
+        </div>
+        <div class="col-sm-6">
             <h2>Muhammad A. Shah</h2>
             <br>
             <p>Oracle Certified Associate Java SE 8 programmer</p>
@@ -49,6 +49,7 @@
                 href="https://www.twitter.com/amir__shah">@Amir__Shah</a>
         </div>
     </div>
+
 </div>
 <div th:replace="base::footer"></div>
 </body>

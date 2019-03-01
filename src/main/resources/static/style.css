@@ -1,15 +1,14 @@
-img{
+/*img{
     width: 30px;
     height: 30px;
-}
+}*/
 
 .home-page-picture {
     width: 30px;
     height: 30px;
 }
 
-
-.icon { /*class*/
+.icon {
     width: 42px;
     height: 42px;
     border: 0;

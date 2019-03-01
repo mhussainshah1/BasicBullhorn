@@ -13,11 +13,11 @@
 picturePath
 -->
 <div align="center" class="container">
-    <h1>Enter Message</h1>
+    <h2>Enter Message</h2>
     <form action="#" enctype="multipart/form-data" method="POST" th:action="@{/process}" th:object="${message}">
         <input th:field="*{id}" type="hidden"/>
 
-        <table>
+        <table class="table" style="width:100%">
             <tr>
                 <td>Title:</td>
                 <td><input th:field="*{title}" type="text"/></td>
@@ -25,7 +25,7 @@ picturePath
             </tr>
             <tr>
                 <td>Content:</td>
-                <td><textarea rows="10" th:field="*{content}"/></td>
+                <td><textarea th:field="*{content}"/></td>
                 <td><span th:errors="*{content}" th:if="${#fields.hasErrors('content')}"></span></td>
             </tr>
             <tr>
