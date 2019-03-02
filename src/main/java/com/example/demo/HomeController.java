@@ -63,25 +63,47 @@ public class HomeController {
 
     @PostMapping("/process")
     public String processForm(@Valid Message message,
-                              @RequestParam("file") MultipartFile file,
-                              BindingResult result) {
-        if (result.hasErrors()) {
+                              BindingResult result,
+                              @RequestParam("file") MultipartFile file) {
+
+        if (result.hasErrors() || file.isEmpty()) {
             return "messageform";
         }
-        if(file.isEmpty()){
-            return "redirect:/add";
+
+        try {
+            Map uploadResult = cloudc.upload(file.getBytes(), ObjectUtils.asMap("resourcetype", "auto"));
+            String url = uploadResult.get("url").toString();
+            message.setPicturePath(url);
+            messageRepository.save(message);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return "redirect:/messageform";
         }
-        try{
+        return "redirect:/";
+    }
+
+    /*@PostMapping("/process")
+    public String processForm(@ModelAttribute @Valid Message message,
+                              @RequestParam("file") MultipartFile file,
+                              BindingResult result) {
+        if (result.hasErrors() || file.isEmpty()) {
+            //return "redirect:/add";
+            return "messageform";
+        }
+       *//* if(file.isEmpty()){
+            return "redirect:/add";
+        }*//*
+       *//* try{
             Map uploadResult = cloudc.upload(
                     file.getBytes(), ObjectUtils.asMap("resourcetype", "auto"));
             message.setPicturePath(uploadResult.get("url").toString());
-            messageRepository.save(message);//generate SQL insert statement and insert data into database
         } catch (IOException e){
             e.printStackTrace();
             return "redirect:/add";
-        }
-         return "redirect:/";
-    }
+        }*//*
+//        messageRepository.save(message);//generate SQL insert statement and insert data into database
+        return "redirect:/";
+    }*/
 
     @RequestMapping("/detail/{id}")
     public String showCourse(@PathVariable("id") long id, Model model) {

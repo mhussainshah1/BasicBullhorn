@@ -43,7 +43,7 @@ public class Message {
     @Size(min = 4)
     private String postedBy;
 
-    //@NonNull
+    @NonNull
     @Size(min = 4)
     private String picturePath;
 
