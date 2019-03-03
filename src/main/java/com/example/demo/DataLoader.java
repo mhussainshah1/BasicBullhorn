@@ -28,6 +28,14 @@ public class DataLoader implements CommandLineRunner {
                 "https://res.cloudinary.com/mhussainshah1/image/upload/v1551473204/victor.png");
         repository.save(message);
 
+        message = new Message("Independence Day",
+                "I am proud to be an American where at least i am free. " +
+                        "I wont forget men who die gave that right to me",
+                LocalDate.of(2019, 07, 04),
+                "Toyelani",
+                "https://res.cloudinary.com/mhussainshah1/image/upload/v1551643804/Tolani%20Oyefule.jpg");
+        repository.save(message);
+
         message = new Message("Mother's Day",
                 "Happy mother day to the most loving mom in the world",
                 LocalDate.of(2019, 05, 15),

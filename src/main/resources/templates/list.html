@@ -26,15 +26,14 @@
         </thead>
         <!--enhanced for loop-->
         <tr th:each="message : ${messages}" th:object="${message}">
-            <td><a th:href="@{/detail/{id}(id=*{id})}">[[*{title}]]</a></td>
-            <td th:text="*{content}"></td>
-            <!--<td th:text = "${#temporals.format(message.dueDate, 'yyyy-MM-dd')}"></td>-->
-            <td th:text="*{postedDate}"></td>
+            <td th:text="*{title}"></td>
+            <td><a th:href="@{/detail/{id}(id=*{id})}">[[*{content}]]</a></td>
+            <td th:text="*{postedDate}"></td><!--<td th:text = "${#temporals.format(message.dueDate, 'yyyy-MM-dd')}"></td>-->
             <td th:text="*{postedBy}"></td>
             <td><img class ="home-page-picture" th:src="*{picturePath}" alt="Picture"></td>
             <td>
-                <a th:href="@{/update/{id}(id=*{id})}">Update</a>-<!-- Update -->
-                <a th:href="@{/delete/{id}(id=*{id})}">Delete</a><!-- Delete -->
+                <a th:href="@{/update/{id}(id=*{id})}">edit</a>-<!-- Update -->
+                <a th:href="@{/delete/{id}(id=*{id})}">delete</a><!-- Delete -->
             </td>
         </tr>
     </table>
