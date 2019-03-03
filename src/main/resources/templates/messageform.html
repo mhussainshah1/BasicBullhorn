@@ -8,9 +8,6 @@
 <body>
 <div th:replace="base::nav"></div>
 <br/>
-<!--
-picturePath
--->
 <div align="center" class="container">
     <div class="jumbotron lead">
         <h2 align="center">Write Post</h2>
@@ -45,24 +42,26 @@ picturePath
 
             <tr>
                 <td> Post Date:</td>
-                <td colspan="2"> <span name="postedDate"
-                                       th:field="*{postedDate}"
-                                       th:text="*{postedDate}"></span></td>
-            </tr>
-            <tr>
-                <td colspan="3"><input name="file" type="file"/></td>
+                <td colspan="2"> <label th:field="*{postedDate}"
+                                       th:text="*{postedDate}"></label></td>
             </tr>
             <tr>
                 <td> Picture:</td>
-                <td> <span th:if="*{picturePath} != null">
-                        <img class="profile-picture" th:alt="Picture" th:src="*{picturePath}">
-                    <!-- th:text="*{picturePath}" -->
-                    </span></td>
-                <td><span th:errors="*{picturePath}" th:if="${#fields.hasErrors('picturePath')}"></span>
-                    [[${message.picturePath}]]
+                <td colspan="2">
+                    <!--<span th:if="*{picturePath} == null">-->
+                        <input name="file" type="file"/>
+                    <!--</span>-->
                 </td>
             </tr>
-
+            <tr>
+                <td>
+                    <span th:if="*{picturePath} != null">
+                        <img class="profile-picture"  th:alt="Picture"  th:src="*{picturePath}" />
+                    </span> <br/>
+                </td>
+                <td><label th:field="*{picturePath}" th:text ="*{picturePath}"></label></td><!--[[*{picturePath}]]-->
+                <td><span th:errors="*{picturePath}" th:if="${#fields.hasErrors('picturePath')}"></span></td>
+            </tr>
             <tr>
                 <td colspan="3"><input text="Submit" type="submit"/></td>
             </tr>

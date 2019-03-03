@@ -65,8 +65,8 @@ public class HomeController {
     public String processForm(@Valid Message message,
                               BindingResult result,
                               @RequestParam("file") MultipartFile file) {
-
-        if (result.hasErrors() || file.isEmpty()) {
+        System.out.println("object = " + message);
+        if (result.hasErrors() || file.isEmpty()){
             return "messageform";
         }
 
@@ -81,29 +81,6 @@ public class HomeController {
         }
         return "redirect:/";
     }
-
-    /*@PostMapping("/process")
-    public String processForm(@ModelAttribute @Valid Message message,
-                              @RequestParam("file") MultipartFile file,
-                              BindingResult result) {
-        if (result.hasErrors() || file.isEmpty()) {
-            //return "redirect:/add";
-            return "messageform";
-        }
-       *//* if(file.isEmpty()){
-            return "redirect:/add";
-        }*//*
-       *//* try{
-            Map uploadResult = cloudc.upload(
-                    file.getBytes(), ObjectUtils.asMap("resourcetype", "auto"));
-            message.setPicturePath(uploadResult.get("url").toString());
-        } catch (IOException e){
-            e.printStackTrace();
-            return "redirect:/add";
-        }*//*
-//        messageRepository.save(message);//generate SQL insert statement and insert data into database
-        return "redirect:/";
-    }*/
 
     @RequestMapping("/detail/{id}")
     public String showCourse(@PathVariable("id") long id, Model model) {

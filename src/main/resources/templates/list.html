@@ -25,21 +25,20 @@
             </tr>
         </thead>
         <!--enhanced for loop-->
-        <tr th:each="message : ${messages}">
-            <td th:text="${message.title}"></td>
-            <td th:text="${message.content}"></td>
+        <tr th:each="message : ${messages}" th:object="${message}">
+            <td><a th:href="@{/detail/{id}(id=*{id})}">[[*{title}]]</a></td>
+            <td th:text="*{content}"></td>
             <!--<td th:text = "${#temporals.format(message.dueDate, 'yyyy-MM-dd')}"></td>-->
-            <td th:text="${message.postedDate}"></td>
-            <td th:text="${message.postedBy}"></td>
+            <td th:text="*{postedDate}"></td>
+            <td th:text="*{postedBy}"></td>
             <td>
-                <div th:if="${message.picturePath} != null">
-                    <img class ="home-page-picture" th:src="${message.picturePath}" alt="Picture">
+                <div th:if="*{picturePath} != null">
+                    <img class ="home-page-picture" th:src="*{picturePath}" alt="Picture">
                 </div>
             </td>
             <td>
-                <a th:href="@{/update/{id}(id=${message.id})}">Update</a>-<!-- Update -->
-                <a th:href="@{/detail/{id}(id=${message.id})}">Details</a>-<!-- Read -->
-                <a th:href="@{/delete/{id}(id=${message.id})}">Delete</a><!-- Delete -->
+                <a th:href="@{/update/{id}(id=*{id})}">Update</a>-<!-- Update -->
+                <a th:href="@{/delete/{id}(id=*{id})}">Delete</a><!-- Delete -->
             </td>
         </tr>
     </table>

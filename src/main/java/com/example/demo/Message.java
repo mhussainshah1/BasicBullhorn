@@ -1,6 +1,6 @@
 package com.example.demo;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.lang.NonNull;
 
@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.Valid;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
@@ -109,5 +110,15 @@ public class Message {
 
     public void setPicturePath(String picturePath) {
         this.picturePath = picturePath;
+    }
+
+    @Override
+    public String toString() {
+        String string = "Title = " + title +
+                "\nContent = "+ content +
+                "\nPosted Date = " + postedDate +
+                "\nPosted By =" + postedBy +
+                "\nPicture Path = " + picturePath;
+        return  string;
     }
 }
