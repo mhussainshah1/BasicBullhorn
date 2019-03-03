@@ -66,19 +66,30 @@ public class HomeController {
                               BindingResult result,
                               @RequestParam("file") MultipartFile file) {
         System.out.println("object = " + message);
-        if (result.hasErrors() || file.isEmpty()){
+        //check for errors on the form
+        if (result.hasErrors() ){
             return "messageform";
         }
 
-        try {
-            Map uploadResult = cloudc.upload(file.getBytes(), ObjectUtils.asMap("resourcetype", "auto"));
-            String url = uploadResult.get("url").toString();
-            message.setPicturePath(url);
+        if(message.getPicturePath() != null && file.isEmpty()){
             messageRepository.save(message);
+            return "redirect:/";
+        }
+
+        if( file.isEmpty()){
+            return "messageform";
+        }
+        Map uploadResult;
+        try {
+            uploadResult = cloudc.upload(
+                    file.getBytes(), ObjectUtils.asMap("resourcetype", "auto"));
         } catch (IOException e) {
             e.printStackTrace();
             return "redirect:/messageform";
         }
+        String url = uploadResult.get("url").toString();
+        message.setPicturePath(url);
+        messageRepository.save(message);
         return "redirect:/";
     }
 

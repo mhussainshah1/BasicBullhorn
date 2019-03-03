@@ -36,7 +36,6 @@ public class Message {
     @Size(min = 10)
     private String content;
 
-//    @NonNull
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     LocalDate postedDate;
 
@@ -45,7 +44,7 @@ public class Message {
     private String postedBy;
 
     @NonNull
-    @Size(min = 4)
+    //@Size(min = 4)
     private String picturePath;
 
     public Message() {

@@ -31,11 +31,7 @@
             <!--<td th:text = "${#temporals.format(message.dueDate, 'yyyy-MM-dd')}"></td>-->
             <td th:text="*{postedDate}"></td>
             <td th:text="*{postedBy}"></td>
-            <td>
-                <div th:if="*{picturePath} != null">
-                    <img class ="home-page-picture" th:src="*{picturePath}" alt="Picture">
-                </div>
-            </td>
+            <td><img class ="home-page-picture" th:src="*{picturePath}" alt="Picture"></td>
             <td>
                 <a th:href="@{/update/{id}(id=*{id})}">Update</a>-<!-- Update -->
                 <a th:href="@{/delete/{id}(id=*{id})}">Delete</a><!-- Delete -->
