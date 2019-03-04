@@ -62,7 +62,7 @@ public class HomeController {
     }
 
     @PostMapping("/process")
-    public String processForm(@Valid Message message,
+    public String processForm(@Valid @ModelAttribute("message") Message message,
                               BindingResult result,
                               @RequestParam("file") MultipartFile file) {
         System.out.println("object = " + message);
