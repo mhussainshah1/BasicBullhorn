@@ -46,11 +46,8 @@
                         <input name="file" type="file"/>
                     <!--</span>-->
                 </td>
-                <td>
-
-                </td>
+                <td></td>
             </tr>
-
                 <tr th:if="*{picturePath} != null">
                     <td><input th:field="*{picturePath}" type ="hidden"><!--[[*{picturePath}]]--></td>
                     <td><img class="profile-picture"  th:alt="Picture"  th:src="*{picturePath}" /><br/></td>
