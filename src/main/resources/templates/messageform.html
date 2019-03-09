@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns:th="www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <div th:replace="base::header"></div>
     <title>Message Form</title>
@@ -13,12 +13,7 @@
         <h2 align="center">Write Post</h2>
     </div>
 
-    <form action="#"
-          enctype="multipart/form-data"
-          method="post"
-          th:action="@{/process}"
-          th:object="${message}">
-
+    <form action="#" enctype="multipart/form-data"   method="post"  th:action="@{/process}"  th:object="${message}">
         <table class="table">
             <input th:field="*{id}" type="hidden"/>
             <tr>
@@ -55,13 +50,11 @@
 
                 </td>
             </tr>
-            <span th:if="*{picturePath} != null">
-                <tr>
+                <tr th:if="*{picturePath} != null">
                     <td><input th:field="*{picturePath}" type ="hidden"><!--[[*{picturePath}]]--></td>
                     <td><img class="profile-picture"  th:alt="Picture"  th:src="*{picturePath}" /><br/></td>
                     <td><span th:errors="*{picturePath}" th:if="${#fields.hasErrors('picturePath')}"></span></td>
                 </tr>
-            </span>
             <tr>
                 <td align="center" colspan="3"><input text="Submit" type="submit"/></td>
             </tr>

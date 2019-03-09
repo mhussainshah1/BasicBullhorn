@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns:th="www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <div th:replace ="base::header"></div>
      <title>List</title>
@@ -30,7 +30,7 @@
             <td><a th:href="@{/detail/{id}(id=*{id})}">[[*{content}]]</a></td>
             <td th:text="*{postedDate}"></td><!--<td th:text = "${#temporals.format(message.dueDate, 'yyyy-MM-dd')}"></td>-->
             <td th:text="*{postedBy}"></td>
-            <td><img class ="home-page-picture" th:src="*{picturePath}" alt="Picture"></td>
+            <td><img class ="icon" th:src="*{picturePath}" alt="Picture"></td>
             <td>
                 <a th:href="@{/update/{id}(id=*{id})}">edit</a>-<!-- Update -->
                 <a th:href="@{/delete/{id}(id=*{id})}">delete</a><!-- Delete -->
