@@ -10,7 +10,7 @@
 <br/>
 <div align="center" class="container">
     <div class="jumbotron lead">
-        <h2 align="center">Write Post</h2>
+        <h2 align="center">Blog</h2>
     </div>
 
     <form action="#" enctype="multipart/form-data"   method="post"  th:action="@{/process}"  th:object="${message}">
@@ -50,6 +50,7 @@
 
                 </td>
             </tr>
+
                 <tr th:if="*{picturePath} != null">
                     <td><input th:field="*{picturePath}" type ="hidden"><!--[[*{picturePath}]]--></td>
                     <td><img class="profile-picture"  th:alt="Picture"  th:src="*{picturePath}" /><br/></td>
