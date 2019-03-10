@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -65,9 +66,12 @@ public class HomeController {
     public String processForm(@Valid @ModelAttribute("message") Message message,
                               BindingResult result,
                               @RequestParam("file") MultipartFile file) {
-        System.out.println("object = " + message);
+        System.out.println("object = " + message );
         //check for errors on the form
         if (result.hasErrors() ){
+            for (ObjectError e : result.getAllErrors()){
+                System.out.println(e);
+            }
             return "messageform";
         }
 
