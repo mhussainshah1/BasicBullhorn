@@ -1,7 +1,7 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <div th:replace ="base::header"></div>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace ="base::header">
      <title>List</title>
 </head>
 <body>
@@ -19,7 +19,7 @@
                 <th>Posted Date</th>
                 <th>Posted By</th>
                 <th>Picture</th>
-                <th>To Do</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <!--enhanced for loop-->
