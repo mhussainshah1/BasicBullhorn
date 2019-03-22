@@ -113,11 +113,11 @@ public class Message {
 
     @Override
     public String toString() {
-        String string = "Title = " + title +
-                "\nContent = "+ content +
-                "\nPosted Date = " + postedDate +
-                "\nPosted By =" + postedBy +
-                "\nPicture Path = " + picturePath;
+        String string = "[Title = " + title +
+                ", Content = "+ content +
+                ", Posted Date = " + postedDate +
+                ", Posted By =" + postedBy +
+                ", Picture Path = " + picturePath +"]";
         return  string;
     }
 }
