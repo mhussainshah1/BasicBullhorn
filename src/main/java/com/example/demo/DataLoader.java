@@ -25,7 +25,7 @@ public class DataLoader implements CommandLineRunner {
                 "I am still looking for someone to come in my life",
                 LocalDate.of(2019, 02, 14),
                 "Victor",
-                "https://res.cloudinary.com/mhussainshah1/image/upload/v1551473204/victor.png");
+                "https://res.cloudinary.com/mhussainshah1/image/upload/v1553267514/victor.png");
         repository.save(message);
 
         message = new Message("Independence Day",
@@ -40,7 +40,7 @@ public class DataLoader implements CommandLineRunner {
                 "Happy mother day to the most loving mom in the world",
                 LocalDate.of(2019, 05, 15),
                 "Melisa",
-                "https://res.cloudinary.com/mhussainshah1/image/upload/v1551473204/notcompleted.png");
+                "https://res.cloudinary.com/mhussainshah1/image/upload/v1551715335/ktlpiusvm2hecfopse7y.png");
         repository.save(message);
     }
 }
